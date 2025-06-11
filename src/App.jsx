@@ -12,7 +12,7 @@ import ConnectionRequest from "./components/ConnectionRequest";
 import { lazy, useEffect } from "react";
 import MyConnection from "./components/MyConnection";
 import UserAccount from "./components/UserAccount";
-import FeedbackForm from "./components/feedbackForm";
+import FeedbackForm from "./components/FeedbackForm";
 import PremiumCard from "./components/PremiumCard";
 import { messaging } from "./utils/firebase";
 import { getToken } from "firebase/messaging";
