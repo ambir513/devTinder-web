@@ -11,19 +11,16 @@ const ConnectionRequest = () => {
   const handleConnectionRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `https://dev-tinder-ggrn.onrender.com/request/review/${status}/${id}`,
+        `/api/request/review/${status}/${id}`,
         {},
         { withCredentials: true }
       );
       console.log(res.data);
       dispatch(removeRequest(id));
       if (res.data?.message) {
-        const res2 = await axios.get(
-          "https://dev-tinder-ggrn.onrender.com/user/connection",
-          {
-            withCredentials: true,
-          }
-        );
+        const res2 = await axios.get("/api/user/connection", {
+          withCredentials: true,
+        });
         dispatch(addConnection(res2.data?.data));
       }
     } catch (error) {

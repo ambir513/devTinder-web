@@ -18,16 +18,13 @@ const Signup = () => {
     try {
       setIsLoading((prev) => !prev);
       const userName = emailId.split("@")[0];
-      const res = await axios.post(
-        "https://dev-tinder-ggrn.onrender.com/signup",
-        {
-          firstName,
-          lastName,
-          userName,
-          emailId,
-          password,
-        }
-      );
+      const res = await axios.post("/api/signup", {
+        firstName,
+        lastName,
+        userName,
+        emailId,
+        password,
+      });
       if (res.data?.message) {
         setIsLoading((prev) => !prev);
       }

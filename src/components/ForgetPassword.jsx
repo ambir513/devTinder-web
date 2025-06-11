@@ -17,7 +17,7 @@ const ForgetPassword = () => {
     setIsLoading(true);
     try {
       const res = await axios.patch(
-        "https://dev-tinder-ggrn.onrender.com/account/password/reset",
+        "/api/account/password/reset",
         {
           emailId,
           currentPassword,

@@ -11,12 +11,9 @@ const PremiumCard = () => {
   const user = useSelector((store) => store.user);
 
   const validatePayment = async () => {
-    const res = await axios.get(
-      "https://dev-tinder-ggrn.onrender.com/payment/verify",
-      {
-        withCredentials: true,
-      }
-    );
+    const res = await axios.get("/api/payment/verify", {
+      withCredentials: true,
+    });
     setIsUserPay(res.data?.isPremium);
   };
   useEffect(() => {
@@ -25,7 +22,7 @@ const PremiumCard = () => {
   const handleByClick = async (amount1, membership) => {
     try {
       const res = await axios.post(
-        "https://dev-tinder-ggrn.onrender.com/payment/create",
+        "/api/payment/create",
         {
           amount: amount1,
           membership: membership,

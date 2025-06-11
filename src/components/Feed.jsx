@@ -17,12 +17,9 @@ const Feed = () => {
 
   const getFeed = async () => {
     try {
-      const res = await axios.get(
-        "https://dev-tinder-ggrn.onrender.com/user/feed",
-        {
-          withCredentials: true,
-        }
-      );
+      const res = await axios.get("/api/user/feed", {
+        withCredentials: true,
+      });
       dispatch(addFeed(res?.data));
     } catch (error) {
       console.log(error);

@@ -10,7 +10,7 @@ const UserCart = ({ user }) => {
   const handleRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `https://dev-tinder-ggrn.onrender.com/request/send/${status}/${id}`,
+        `/api/request/send/${status}/${id}`,
         {},
         { withCredentials: true }
       );
