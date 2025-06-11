@@ -1,0 +1,35 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import UserCart from "./UserCart";
+import { addFeed } from "../utils/feedSlice";
+
+const Feed = () => {
+  const [user, setUser] = useState([]);
+  const dispatch = useDispatch();
+  const feed = useSelector((store) => store.feed);
+
+  useEffect(() => {
+    if (feed.length === 0) {
+      getFeed();
+    }
+  }, []);
+
+  const getFeed = async () => {
+    try {
+      const res = await axios.get(
+        "https://dev-tinder-ggrn.onrender.com/user/feed",
+        {
+          withCredentials: true,
+        }
+      );
+      dispatch(addFeed(res?.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return <UserCart user={feed[0]} />;
+};
+
+export default Feed;
