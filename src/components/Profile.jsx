@@ -33,7 +33,7 @@ const Profile = () => {
       formData.append("avatar", file);
       formData.append("caption", text);
 
-      const res = await axios.post("/api/account/post/upload", formData, {
+      const res = await axios.post("api/account/post/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

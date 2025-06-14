@@ -10,7 +10,7 @@ const UserCart = ({ user }) => {
   const handleRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `/api/request/send/${status}/${id}`,
+        `api/request/send/${status}/${id}`,
         {},
         { withCredentials: true }
       );

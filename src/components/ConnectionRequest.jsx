@@ -11,14 +11,14 @@ const ConnectionRequest = () => {
   const handleConnectionRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `/api/request/review/${status}/${id}`,
+        `api/request/review/${status}/${id}`,
         {},
         { withCredentials: true }
       );
-      console.log(res.data);
+      console.log(res.data?.message);
       dispatch(removeRequest(id));
       if (res.data?.message) {
-        const res2 = await axios.get("/api/user/connection", {
+        const res2 = await axios.get("api/user/connection", {
           withCredentials: true,
         });
         dispatch(addConnection(res2.data?.data));
@@ -41,7 +41,7 @@ const ConnectionRequest = () => {
             >
               <div className="flex justify-center gap-4 items-center">
                 <div>
-                  <img className="size-10 rounded-box" src={req.photoUrl} />
+                  <img className="size-10 rounded-box" src={req?.photoUrl} />
                 </div>
                 <div className="flex flex-col gap-1 ">
                   <p>

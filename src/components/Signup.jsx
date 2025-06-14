@@ -18,7 +18,7 @@ const Signup = () => {
     try {
       setIsLoading((prev) => !prev);
       const userName = emailId.split("@")[0];
-      const res = await axios.post("/api/signup", {
+      const res = await axios.post("api/signup", {
         firstName,
         lastName,
         userName,

@@ -47,7 +47,7 @@ const EditProfile = () => {
     }
 
     try {
-      const res = await axios.patch("/api/account/edit", formData, {
+      const res = await axios.patch("api/account/edit", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -57,7 +57,7 @@ const EditProfile = () => {
       if (res.data?.message) {
         toast.success("Profile updated successfully!");
       }
-      Navigate("/profile/" + user?.userName);
+      Navigate("/profile");
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message ||

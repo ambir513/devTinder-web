@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const MyConnection = () => {
   const connection = useSelector((store) => store.connection);
+  const users = useSelector((store) => store.user);
 
   return (
     <ul className="list bg-base-200 w-full rounded-box shadow-lg h-dvh">
@@ -23,7 +24,7 @@ const MyConnection = () => {
                 {user?.description}
               </div>
             </div>
-            <Link to={`/chat/${user?._id}`}>
+            <Link to={users?.isPremium ? `/chat/${user?._id}` : "/premium"}>
               <button className="btn btn-primary">Chat</button>
             </Link>
             <Link to={`/profile/${user?.emailId?.split("@")[0]}`}>

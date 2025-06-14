@@ -19,15 +19,18 @@ const Body = () => {
   const getUserData = async () => {
     try {
       const [user, connection, connectionRequest] = await axios.all([
-        axios.get("/api/account/view", {
+        axios.get("api/account/view", {
           withCredentials: true,
         }),
-        axios.get("/api/user/connection", {
+        axios.get("api/user/connection", {
           withCredentials: true,
         }),
-        axios.get("/api/user/request/received", {
-          withCredentials: true,
-        }),
+        axios.get(
+          "api/user/request/received",
+          {
+            withCredentials: true,
+          }
+        ),
       ]);
       const userData = user.data;
       const connectionData = connection.data?.data;
@@ -35,8 +38,10 @@ const Body = () => {
       console.log(userData);
       console.log(connectionData);
       dispatch(addUser(userData));
+      if (connectionRequestData[0]) {
+        dispatch(addRequest(connectionRequestData));
+      }
       dispatch(addConnection(connectionData));
-      dispatch(addRequest(connectionRequestData));
     } catch (error) {
       if (error?.status == 401) {
         if (!userName) {
