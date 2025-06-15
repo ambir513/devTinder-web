@@ -16,11 +16,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = axios.post(
-        "http://localhost:7777/logout",
-        {},
-        { withCredentials: true }
-      );
+      const res = axios.post("/api/logout", {}, { withCredentials: true });
       dispatch(removeUser());
       dispatch(removeConnection());
       dispatch(removeRequest());

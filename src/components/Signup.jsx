@@ -22,7 +22,7 @@ const Signup = () => {
     e.preventDefault();
     setIsLoading((prev) => !prev);
     try {
-      const res = await axios.post("http://localhost:7777/sentotp", {
+      const res = await axios.post("/api/sentotp", {
         emailId,
       });
       if (res.data?.message) {
@@ -38,7 +38,7 @@ const Signup = () => {
 
   const resentotp = async () => {
     try {
-      const res = await axios.post("http://localhost:7777/resentotp", {
+      const res = await axios.post("/api/resentotp", {
         emailId,
       });
       if (res.data?.message) {
@@ -55,7 +55,7 @@ const Signup = () => {
       setMessage("Invalid OTP format");
     }
     try {
-      const res = await axios.post("http://localhost:7777/verify", {
+      const res = await axios.post("/api/verify", {
         emailId,
         otp,
       });
@@ -64,7 +64,7 @@ const Signup = () => {
       }
       setPopOtp((prev) => !prev);
       const userName = emailId.split("@")[0];
-      const res1 = await axios.post("http://localhost:7777/signup", {
+      const res1 = await axios.post("/api/signup", {
         firstName,
         lastName,
         userName,
@@ -73,7 +73,7 @@ const Signup = () => {
       });
       if (res1.data?.message) {
         const res2 = await axios.post(
-          "http://localhost:7777/login",
+          "/api/login",
           {
             emailId,
             password,

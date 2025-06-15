@@ -15,7 +15,7 @@ const UserAccount = () => {
 
   const getUser = async () => {
     try {
-      const res = await axios.get("http://localhost:7777/account/" + userName);
+      const res = await axios.get("/api/account/" + userName);
       setUser(res.data?.data);
       console.log(res.data);
     } catch (error) {

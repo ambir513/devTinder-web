@@ -17,7 +17,7 @@ const ForgetPassword = () => {
     setIsLoading(true);
     try {
       const res = await axios.patch(
-        "http://localhost:7777/account/password/reset",
+        "/api/account/password/reset",
         {
           emailId,
           currentPassword,
