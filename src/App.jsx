@@ -33,7 +33,8 @@ function App() {
 
       // Get FCM token
       const token = await getToken(messaging, {
-        vapidKey:
+        //localhost:7777dKey:
+        vhttp:
           "BM0epXF86D1Kay5EZJRjdivGfwHIBq_CixIYdGpvyq7Wtkt8kUNdVnmcwzkkdzEMtawB3wyKRLp_t_ACU3HbQoc", // get this from Firebase Console > Cloud Messaging
       });
       console.log(token);

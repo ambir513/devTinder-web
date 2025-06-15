@@ -19,18 +19,15 @@ const Body = () => {
   const getUserData = async () => {
     try {
       const [user, connection, connectionRequest] = await axios.all([
-        axios.get("api/account/view", {
+        axios.get("http://localhost:7777/account/view", {
           withCredentials: true,
         }),
-        axios.get("api/user/connection", {
+        axios.get("http://localhost:7777/user/connection", {
           withCredentials: true,
         }),
-        axios.get(
-          "api/user/request/received",
-          {
-            withCredentials: true,
-          }
-        ),
+        axios.get("http://localhost:7777/user/request/received", {
+          withCredentials: true,
+        }),
       ]);
       const userData = user.data;
       const connectionData = connection.data?.data;

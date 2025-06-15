@@ -21,7 +21,7 @@ const Login = () => {
     setIsLoading((prev) => !prev);
     try {
       const res = await axios.post(
-        "api/login",
+        "http://localhost:7777/login",
         {
           emailId,
           password,
@@ -30,12 +30,18 @@ const Login = () => {
       );
       dispatch(addUser(res.data?.data));
       if (res.data?.data?.userName) {
-        const connection = await axios.get("api/user/connection", {
-          withCredentials: true,
-        });
-        const connectionRequest = await axios.get("api/user/request/received", {
-          withCredentials: true,
-        });
+        const connection = await axios.get(
+          "http://localhost:7777/user/connection",
+          {
+            withCredentials: true,
+          }
+        );
+        const connectionRequest = await axios.get(
+          "http://localhost:7777/user/request/received",
+          {
+            withCredentials: true,
+          }
+        );
         const connectionData = connection.data?.data;
         const connectionRequestData = connectionRequest.data?.data;
         dispatch(addConnection(connectionData));

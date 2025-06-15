@@ -6,7 +6,7 @@ importScripts(
 );
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAMz6jEJCNTUdHR0gaVlOKLZWZQMgU1Nc0",
+  http://localhost:7777Key: "AIzaSyAMz6jEJCNTUdHR0gaVlOKLZWZQMgU1Nc0",
   authDomain: "devtinder-b4b07.firebaseapp.com",
   projectId: "devtinder-b4b07",
   storageBucket: "devtinder-b4b07.firebasestorage.app",
