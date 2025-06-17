@@ -13,7 +13,7 @@ const PremiumCard = () => {
   const user = useSelector((store) => store.user);
 
   const validatePayment = async () => {
-    const res = await axios.get("http://localhost:7777/payment/verify", {
+    const res = await axios.get("/api/payment/verify", {
       withCredentials: true,
     });
     console.log(res.data);
@@ -26,7 +26,7 @@ const PremiumCard = () => {
   const handleByClick = async (amount1, membership) => {
     try {
       const res = await axios.post(
-        "http://localhost:7777/payment/create",
+        "/api/payment/create",
         {
           amount: amount1,
           membership: membership,

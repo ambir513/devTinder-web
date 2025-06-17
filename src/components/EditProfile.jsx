@@ -47,16 +47,12 @@ const EditProfile = () => {
     }
 
     try {
-      const res = await axios.patch(
-        "http://localhost:7777/account/edit",
-        formData,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.patch("/api/account/edit", formData, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       dispatch(addUser(res.data?.data));
       if (res.data?.message) {
         toast.success("Profile updated successfully!");

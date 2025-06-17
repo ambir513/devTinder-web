@@ -36,7 +36,7 @@ const Login = () => {
     setIsLoading((prev) => !prev);
     try {
       const res = await axios.post(
-        "http://localhost:7777/login",
+        "/api/login",
         {
           emailId,
           password,
@@ -45,14 +45,11 @@ const Login = () => {
       );
       dispatch(addUser(res.data?.data));
       if (res.data?.data?.userName) {
-        const connection = await axios.get(
-          "http://localhost:7777/user/connection",
-          {
-            withCredentials: true,
-          }
-        );
+        const connection = await axios.get("/api/user/connection", {
+          withCredentials: true,
+        });
         const connectionRequest = await axios.get(
-          "http://localhost:7777/user/request/received",
+          "/api/user/request/received",
           {
             withCredentials: true,
           }
@@ -77,7 +74,7 @@ const Login = () => {
     console.log("Google25" + user?.email);
     const userName = user?.email?.split("@")[0];
     try {
-      const res1 = await axios.post("http://localhost:7777/signup", {
+      const res1 = await axios.post("/api/signup", {
         firstName: user?.given_name,
         lastName: user?.family_name,
         userName,
@@ -87,7 +84,7 @@ const Login = () => {
 
       if (!res1.data?.status) {
         const res2 = await axios.post(
-          "http://localhost:7777/login",
+          "/api/login",
           {
             emailId: user?.email,
             password: "Google25" + user?.email,
@@ -97,7 +94,7 @@ const Login = () => {
         console.log(res2.data?.data);
         try {
           const res = await axios.post(
-            "http://localhost:7777/account/oauth",
+            "/api/account/oauth",
             {
               photoUrl: user?.picture,
             },
@@ -117,7 +114,7 @@ const Login = () => {
         }
       } else {
         const res2 = await axios.post(
-          "http://localhost:7777/login",
+          "/api/login",
           {
             emailId: user?.email,
             password: "Google25" + user?.email,
@@ -128,7 +125,7 @@ const Login = () => {
 
         try {
           const res = await axios.post(
-            "http://localhost:7777/account/oauth",
+            "/api/account/oauth",
             {
               photoUrl: user?.picture,
             },
