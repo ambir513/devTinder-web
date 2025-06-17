@@ -146,8 +146,9 @@ const Login = () => {
     } catch (error) {
       if (error?.response?.data?.message === "Invalid Credentials") {
         toast.error("Email is already Sign in, Login with Email/Password");
+      } else {
+        toast.error(error?.response?.data?.message);
       }
-      toast.error(error?.response?.data?.message);
     }
   };
 
