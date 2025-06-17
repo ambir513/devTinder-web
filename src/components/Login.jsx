@@ -71,7 +71,6 @@ const Login = () => {
     }
   };
   const handleSignUp = async (user) => {
-    console.log("Google25" + user?.email);
     const userName = user?.email?.split("@")[0];
     try {
       const res1 = await axios.post("/api/signup", {
@@ -145,6 +144,9 @@ const Login = () => {
         }
       }
     } catch (error) {
+      if (error?.response?.data?.message === "Invalid Credentials") {
+        toast.error("Email is already Sign in, Login with Email/Password");
+      }
       toast.error(error?.response?.data?.message);
     }
   };
