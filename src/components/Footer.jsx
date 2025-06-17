@@ -26,11 +26,11 @@ const Footer = () => {
 
         {/* Links */}
         <nav className="flex flex-wrap justify-center sm:justify-end items-center gap-4 text-sm">
-          <Link to="/terms" className="hover:underline">
-            Terms
+          <Link to="/terms-condition" className="hover:underline">
+            Terms & Conditions
           </Link>
-          <Link to="/privacy" className="hover:underline">
-            Privacy
+          <Link to="/privacy-policy" className="hover:underline">
+            Privacy Policy
           </Link>
           <Link to="/contact" className="hover:underline">
             Contact

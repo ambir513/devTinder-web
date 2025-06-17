@@ -67,8 +67,8 @@ function App() {
           )}
 
           <Route path="/feedback" element={<FeedbackForm />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms-condition" element={<Terms />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/refund" element={<Refund />} />
           <Route path="/about" element={<About />} />
