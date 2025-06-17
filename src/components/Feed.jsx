@@ -43,7 +43,7 @@ const Feed = () => {
                 Privacy Policy
               </Link>
               <Link
-                to="/terms-of-service"
+                to="/terms-condition"
                 className="text-sm text-blue-600 hover:underline"
               >
                 Terms of Service
