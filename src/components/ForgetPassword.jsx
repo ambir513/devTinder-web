@@ -23,7 +23,7 @@ const ForgetPassword = () => {
     }
     console.log(otp);
     try {
-      const res1 = await axios.post("/api/verify", {
+      const res1 = await axios.post("http://localhost:7777/verify", {
         emailId,
         otp,
       });
@@ -48,14 +48,17 @@ const ForgetPassword = () => {
     e.preventDefault();
     try {
       setIsLoading((prev) => !prev);
-      const res1 = await axios.post("/api/account/verifyPassword", {
-        emailId,
-      });
+      const res1 = await axios.post(
+        "http://localhost:7777/account/verifyPassword",
+        {
+          emailId,
+        }
+      );
       console.log(res1.data);
       if (res1.data?.status === "SUCCESS") {
         setPopOtp((prev) => !prev);
         setPopOtp2((prev) => !prev);
-        const res = await axios.post("/api/forgetotp", {
+        const res = await axios.post("http://localhost:7777/forgetotp", {
           emailId,
         });
         if (res.data?.message) {
@@ -74,11 +77,14 @@ const ForgetPassword = () => {
     setIsLoading((prev) => !prev);
     try {
       if (newPassword === confirmPassword) {
-        const res1 = await axios.post("/api/account/newPassword", {
-          emailId,
-          newPassword,
-          confirmPassword,
-        });
+        const res1 = await axios.post(
+          "http://localhost:7777/account/newPassword",
+          {
+            emailId,
+            newPassword,
+            confirmPassword,
+          }
+        );
         console.log(res1.data?.message);
         if (res1.data?.message) {
           toast.success(res1.data?.message);
@@ -99,7 +105,7 @@ const ForgetPassword = () => {
 
   const resentotp = async () => {
     try {
-      const res = await axios.post("/api/resentotp", {
+      const res = await axios.post("http://localhost:7777/resentotp", {
         emailId,
       });
       if (res.data?.message) {

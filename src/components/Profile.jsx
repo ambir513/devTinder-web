@@ -33,12 +33,16 @@ const Profile = () => {
       formData.append("avatar", file);
       formData.append("caption", text);
 
-      const res = await axios.post("/api/account/post/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "http://localhost:7777/account/post/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
       dispatch(addUser(res.data?.data));
       toast.success(res.data?.message);
       setImage("");

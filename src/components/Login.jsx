@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { addConnection } from "../utils/connectionSlice.js";
 import { addRequest } from "../utils/connectionRequestSlice.js";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { useGoogleOneTapLogin } from "@react-oauth/google";
 
 const Login = () => {
   const [emailId, setEmailId] = useState("");
@@ -13,15 +16,27 @@ const Login = () => {
   const [isDisplayEye, setIsDisplayEye] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [photo, setPhoto] = useState("");
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+
+  useGoogleOneTapLogin({
+    onSuccess: (credentialResponse) => {
+      const user = jwtDecode(credentialResponse.credential);
+      setPhoto(user);
+      handleSignUp(user);
+    },
+    onError: () => {
+      console.log("One Tap failed");
+    },
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading((prev) => !prev);
     try {
       const res = await axios.post(
-        "/api/login",
+        "http://localhost:7777/login",
         {
           emailId,
           password,
@@ -30,11 +45,14 @@ const Login = () => {
       );
       dispatch(addUser(res.data?.data));
       if (res.data?.data?.userName) {
-        const connection = await axios.get("/api/user/connection", {
-          withCredentials: true,
-        });
+        const connection = await axios.get(
+          "http://localhost:7777/user/connection",
+          {
+            withCredentials: true,
+          }
+        );
         const connectionRequest = await axios.get(
-          "/api/user/request/received",
+          "http://localhost:7777/user/request/received",
           {
             withCredentials: true,
           }
@@ -53,6 +71,84 @@ const Login = () => {
     } catch (error) {
       setMessage(error?.response?.data);
       setIsLoading((prev) => !prev);
+    }
+  };
+  const handleSignUp = async (user) => {
+    console.log("Google25" + user?.email);
+    const userName = user?.email?.split("@")[0];
+    try {
+      const res1 = await axios.post("http://localhost:7777/signup", {
+        firstName: user?.given_name,
+        lastName: user?.family_name,
+        userName,
+        emailId: user?.email,
+        password: "Google25" + user?.email,
+      });
+
+      if (!res1.data?.status) {
+        const res2 = await axios.post(
+          "http://localhost:7777/login",
+          {
+            emailId: user?.email,
+            password: "Google25" + user?.email,
+          },
+          { withCredentials: true }
+        );
+        console.log(res2.data?.data);
+        try {
+          const res = await axios.post(
+            "http://localhost:7777/account/oauth",
+            {
+              photoUrl: user?.picture,
+            },
+            {
+              withCredentials: true,
+            }
+          );
+
+          if (res.data?.data) {
+            toast.success(res.data?.message); // corrected from res2
+            dispatch(addUser(res.data?.data));
+            Navigate("/");
+          }
+        } catch (error) {
+          console.error("OAuth request failed", error);
+          toast.error("Login failed");
+        }
+      } else {
+        const res2 = await axios.post(
+          "http://localhost:7777/login",
+          {
+            emailId: user?.email,
+            password: "Google25" + user?.email,
+          },
+          { withCredentials: true }
+        );
+        console.log(res2.data?.data);
+
+        try {
+          const res = await axios.post(
+            "http://localhost:7777/account/oauth",
+            {
+              photoUrl: user?.picture,
+            },
+            {
+              withCredentials: true,
+            }
+          );
+
+          if (res.data?.data) {
+            toast.success(res.data?.message); // corrected from res2
+            dispatch(addUser(res.data?.data));
+            Navigate("/");
+          }
+        } catch (error) {
+          console.error("OAuth request failed", error);
+          toast.error("Login failed");
+        }
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -206,6 +302,21 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <div className="w-full flex justify-center items-center overflow-hidden rounded-sm bg-white my-2 py-1">
+            <GoogleLogin
+              width="324px"
+              onSuccess={(Credential) => {
+                const authUser = jwtDecode(Credential?.credential);
+                if (authUser) {
+                  setPhoto(authUser?.picture);
+                  handleSignUp(authUser);
+                }
+                console.log(Credential);
+              }}
+              onError={() => console.log("error")}
+              auto_select:true
+            />
+          </div>
           <div className="flex mt-2 justify-between items-center gap-10">
             <p> Doesn't have account?</p>
             <p className="text-primary">

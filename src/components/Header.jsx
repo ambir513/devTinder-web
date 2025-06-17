@@ -16,7 +16,11 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = axios.post("/api/logout", {}, { withCredentials: true });
+      const res = axios.post(
+        "http://localhost:7777/logout",
+        {},
+        { withCredentials: true }
+      );
       dispatch(removeUser());
       dispatch(removeConnection());
       dispatch(removeRequest());
@@ -47,8 +51,13 @@ const Header = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user?.photoUrl} />
+                <img
+                  src={user?.photoUrl}
+                  alt="Google Profile"
+                  referrerPolicy="no-referrer"
+                />
               </div>
+              {console.log(user?.photoUrl)}
             </div>
 
             <ul

@@ -11,14 +11,14 @@ const ConnectionRequest = () => {
   const handleConnectionRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `/api/request/review/${status}/${id}`,
+        `http://localhost:7777/request/review/${status}/${id}`,
         {},
         { withCredentials: true }
       );
       console.log(res.data?.message);
       dispatch(removeRequest(id));
       if (res.data?.message) {
-        const res2 = await axios.get("/api/user/connection", {
+        const res2 = await axios.get("http://localhost:7777/user/connection", {
           withCredentials: true,
         });
         dispatch(addConnection(res2.data?.data));
