@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { createSocketConnection } from "../utils/socket";
 
 const Chat = () => {
@@ -13,23 +13,28 @@ const Chat = () => {
   const connection = useSelector((store) =>
     store.connection?.filter((user) => user._id === _id)
   );
+  const Navigate = useNavigate();
 
   useEffect(() => {
-    const socket = createSocketConnection();
-    console.log(userData?.firstName);
-    socket.emit("joinChat", { firstName: userData?.firstName, userId, _id });
-    socket.on(
-      "messageRecieved",
-      ({ firstName, text }) => {
-        setMessage((prev) => [...prev, { firstName, text }]);
-        console.log(text);
-      },
-      []
-    );
+    if (userData?.membershipType === "Premium") {
+      const socket = createSocketConnection();
+      console.log(userData?.firstName);
+      socket.emit("joinChat", { firstName: userData?.firstName, userId, _id });
+      socket.on(
+        "messageRecieved",
+        ({ firstName, text }) => {
+          setMessage((prev) => [...prev, { firstName, text }]);
+          console.log(text);
+        },
+        []
+      );
 
-    return () => {
-      socket.disconnect();
-    };
+      return () => {
+        socket.disconnect();
+      };
+    } else {
+      Navigate("/premium");
+    }
   }, [_id]);
 
   const user = connection?.[0];

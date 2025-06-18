@@ -3,93 +3,73 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral text-neutral-content px-4 py-6">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-        {/* Branding & Copyright */}
-        <aside className="flex items-center gap-2 text-center sm:text-left">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            className="fill-current"
-          >
-            <path d="M22.672 15.226l-2.432... (your path here)" />
-          </svg>
-          <p className="text-sm">
-            © {new Date().getFullYear()} DevTinder – Made by Amar Biradar. All
-            rights reserved.
-          </p>
-        </aside>
+    <footer className="w-full bg-base-300 ">
+      <div className="px-10 sm:px-10 md:px-16 lg:px-20 py-10">
+        <div className="flex flex-col lg:flex-row justify-between gap-10">
+          <div className="flex flex-col gap-4">
+            <Link
+              to="/"
+              className="w-[171px] btn bg-ghost py-2 md:text-xl sm:text-md text-lg lg:text-xl"
+            >
+              👨‍💻DevTinder
+            </Link>
+            <Link to="http://amarbiradar.ct.ws/" target="_blank">
+              <p>Crafted by Amar Biradar</p>
+            </Link>
+          </div>
 
-        {/* Links */}
-        <nav className="flex flex-wrap justify-center sm:justify-end items-center gap-4 text-sm">
-          <Link to="/terms-condition" className="hover:underline">
-            Terms & Conditions
-          </Link>
-          <Link to="/privacy-policy" className="hover:underline">
-            Privacy Policy
-          </Link>
-          <Link to="/contact" className="hover:underline">
-            Contact
-          </Link>
-          <Link to="/refund" className="hover:underline">
-            Refund
-          </Link>
-          <Link to="/about" className="hover:underline">
-            About Us
-          </Link>
-          {/* Social icons */}
-          <Link
-            to="https://x.com/ambir0513"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              className="fill-current"
-            >
-              <path d="M24 4.557c-..." />
-            </svg>
-          </Link>
-          <Link
-            to="https://www.linkedin.com/in/ambir0513/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-linkedin"
-              viewBox="0 0 16 16"
-            >
-              <path d="M0 1.146C0 ..." />
-            </svg>
-          </Link>
-          <Link
-            to="https://wa.me/+918956817729"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-whatsapp"
-              viewBox="0 0 16 16"
-            >
-              <path d="M13.601 2.326A..." />
-            </svg>
-          </Link>
-        </nav>
+          <div className="flex flex-wrap justify-start gap-10 md:gap-16 text-sm md:text-base sm:pl-0 pl-4">
+            <div className="flex flex-col gap-3 text-zinc-500 min-w-[120px]">
+              <p className="font-bold text-gray-700">Social</p>
+              <Link to="https://x.com/ambir513" target="_blank">
+                <p>X</p>
+              </Link>
+              <Link to="https://linkedin.com/in/ambir513" target="_blank">
+                <p>LinkedIn</p>
+              </Link>
+            </div>
+
+            <div className="flex flex-col gap-3 text-zinc-500 min-w-[120px]">
+              <p className="font-bold text-gray-700">Support</p>
+              <Link to="/faq">
+                <p>FAQs</p>
+              </Link>
+              <Link to="/contact">
+                <p>Contact Us</p>
+              </Link>
+            </div>
+
+            <div className="flex flex-col gap-3 text-zinc-500 sm:min-w-[130px] max-w-[130px]">
+              <p className="font-bold text-gray-700">Legal</p>
+              <Link to="/privacy-policy">
+                <p>Privacy Policy</p>
+              </Link>
+              <Link to="/terms-condition">
+                <p>Terms & Conditions</p>
+              </Link>
+              <Link to="/refund-policy">
+                <p>Refund Policy</p>
+              </Link>
+              <Link to="/shipping-policy">
+                <p>Shipping & Delivery Policy</p>
+              </Link>
+            </div>
+
+            <div className="flex flex-col gap-3 text-zinc-500 min-w-[120px]">
+              <p className="font-bold text-gray-700">Company</p>
+              <Link to="/about">
+                <p>About Us</p>
+              </Link>
+              <Link to="/blog/why-devtinder">
+                <p>Blog</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center text-sm text-zinc-400">
+          &copy; {new Date().getFullYear()} DevTinder. All rights reserved.
+        </div>
       </div>
     </footer>
   );

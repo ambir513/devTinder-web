@@ -22,9 +22,14 @@ const UserCart = ({ user }) => {
   };
   return (
     <div className="hero bg-base-200 min-h-screen pb-28">
-      <div className="card bg-base-100 sm:w-[400px] w-[300px] shadow-sm ">
+      <div className="card bg-base-100 sm:w-[400px] w-[300px] shadow-sm mt-5 ">
         <figure className="px-10 pt-10">
-          <img src={user?.photoUrl} alt="Shoes" className="rounded-xl" />
+          <img
+            src={user?.photoUrl}
+            alt="Shoes"
+            className="rounded-xl"
+            referrerPolicy="no-referrer"
+          />
         </figure>
         <div className="card-body items-center text-center">
           <div className="flex justify-center items-center">
@@ -52,8 +57,8 @@ const UserCart = ({ user }) => {
           <p>{user?.description}</p>
           <div className="flex justify-center items-center gap-3">
             <p>{user?.age ? "age: " + user?.age : null}</p>
-            <Link to={`/profile/` + user?.userName}>
-              <button className="btn btn-info  btn-xs">view</button>
+            <Link to={`/` + user?.userName}>
+              <button className="btn btn-info btn-xs">view</button>
             </Link>
           </div>
           <div className="card-actions">

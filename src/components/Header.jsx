@@ -58,47 +58,76 @@ const Header = () => {
 
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 shadow"
+              className="menu menu-sm dropdown-content bg-base-300  flex flex-col justify-center gap-2 rounded-box z-10 mt-4 w-52 shadow"
             >
-              <li className="px-2 py-1.5">
-                <Link to="/">
-                  <a className="">Explore</a>
+              <li className="hover:border-l-5">
+                <Link to="/" className="px-2 py-2">
+                  <div className="flex flex-col">
+                    <p className="font-medium text-sm">Explore</p>
+                    <p className="text-[10px] text-gray-500">Discover Devs</p>
+                  </div>
                 </Link>
               </li>
 
-              <Link to="/connection">
-                <li className="px-2 py-1.5 sm:hidden">
-                  <a className="px-2 py-1.5">Your Connection</a>
-                </li>
-              </Link>
-              <li className="px-2 py-1.5">
-                <Link
-                  to="/user/request/received"
-                  className="justify-between px-2 py-1.5"
-                >
-                  Connection Request
-                  {connectionRequest?.length !== 0 ? (
-                    <span className="badge">New</span>
-                  ) : null}
+              <li className="sm:hidden hover:border-l-5">
+                <Link to="/connection" className="px-2 py-2">
+                  <div className="flex flex-col">
+                    <p className="font-medium text-sm">Your Connection</p>
+                    <p className="text-[10px] text-gray-500">
+                      Chat with friends
+                    </p>
+                  </div>
                 </Link>
               </li>
-              <li className="px-2 py-1.5">
-                <Link to={`/profile`} className="justify-between px-2 py-1.5">
-                  Profile
+
+              <li className="hover:border-l-5">
+                <Link to="/user/request/received" className="px-2 py-2">
+                  <div className="flex flex-col">
+                    <p className="font-medium text-sm flex items-center gap-1">
+                      Requests
+                      {connectionRequest?.length !== 0 && (
+                        <span className="badge badge-xs badge-accent text-[9px] ml-1">
+                          New
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-[10px] text-gray-500">Pending Invites</p>
+                  </div>
                 </Link>
               </li>
-              <li className="px-2 py-1.5">
-                <Link to={`/feedback`} className="justify-between px-2 py-1.5">
-                  Feedback
+
+              <li className="hover:border-l-5">
+                <Link to="/profile" className="px-2 py-2">
+                  <div className="flex flex-col">
+                    <p className="font-medium text-sm">Profile</p>
+                    <p className="text-[10px] text-gray-500">Your Info</p>
+                  </div>
                 </Link>
               </li>
-              <li className="px-2 py-1.5">
-                <Link to={`/premium`} className="justify-between px-2 py-1.5">
-                  Premium
+
+              <li className="hover:border-l-5">
+                <Link to="/premium" className="px-2 py-2">
+                  <div className="flex flex-col">
+                    <div className="flex justify-between gap-2">
+                      <p className="font-medium text-sm">Premium</p>
+                      <span className="badge badge-xs badge-accent text-[9px]">
+                        New
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-gray-500">
+                      Get Extra Features
+                    </p>
+                  </div>
                 </Link>
               </li>
-              <li className="px-2 py-1.5" onClick={handleLogout}>
-                <a className="px-2 py-1.5">Logout</a>
+
+              <li onClick={handleLogout} className="hover:border-l-5">
+                <button className="px-2 py-2 w-full text-left">
+                  <div className="flex flex-col">
+                    <p className="font-medium text-sm">Logout</p>
+                    <p className="text-[10px] text-gray-500">Sign out</p>
+                  </div>
+                </button>
               </li>
             </ul>
           </div>

@@ -1,7 +1,9 @@
 const Terms = () => (
-  <div className="p-6 w-full flex justify-center mx-auto h-fit items-center">
+  <div className="p-6 max-w-4xl mx-auto w-full flex justify-center  items-center">
     <div>
-      <h1 className="text-3xl font-bold mb-4">Terms & Conditions</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center ">
+        Terms & Conditions
+      </h1>
 
       <p className="text-sm mb-4">
         Welcome to <strong>DevTinder</strong> – a platform for developers to
@@ -75,6 +77,7 @@ const Terms = () => (
           amarbiradar147@gmail.com
         </a>
       </p>
+      <p className="text-sm text-gray-500 mt-6">Last updated: June 18, 2025</p>
     </div>
   </div>
 );

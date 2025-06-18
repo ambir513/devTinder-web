@@ -5,7 +5,6 @@ import UserCart from "./UserCart";
 import { addFeed } from "../utils/feedSlice";
 
 const Feed = () => {
-  const [user, setUser] = useState([]);
   const dispatch = useDispatch();
   const feed = useSelector((store) => store.feed);
 
@@ -13,7 +12,7 @@ const Feed = () => {
     if (feed.length === 0) {
       getFeed();
     }
-  }, []);
+  }, [feed]);
 
   const getFeed = async () => {
     try {

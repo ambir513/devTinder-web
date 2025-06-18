@@ -11,15 +11,17 @@ import ConnectionRequest from "./components/ConnectionRequest";
 import { lazy, useEffect } from "react";
 import MyConnection from "./components/MyConnection";
 import UserAccount from "./components/UserAccount";
-import FeedbackForm from "./components/FeedbackForm";
 import PremiumCard from "./components/PremiumCard";
 import { messaging } from "./utils/firebase";
 import { getToken } from "firebase/messaging";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
 import Contact from "./components/Contact";
-import Refund from "./components/Refund";
 import About from "./components/Aboutus";
+import RefundPolicy from "./components/RefundPolicy";
+import ShippingPolicy from "./components/ShippingPolicy";
+import BlogPost from "./components/BlogPost";
+import FAQs from "./components/FAQs";
 
 const ChatLazy = lazy(() => import("./components/Chat"));
 
@@ -60,24 +62,23 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<EditProfile />} />
-          {user?.membershipType === "Premium" ? (
-            <Route path="/chat/:_id" element={<ChatLazy />} />
-          ) : (
-            <Route path="/premium" element={<PremiumCard />} />
-          )}
-
-          <Route path="/feedback" element={<FeedbackForm />} />
+          <Route path="/chat/:_id" element={<ChatLazy />} />
+          <Route path="/premium" element={<PremiumCard />} />
           <Route path="/terms-condition" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/refund" element={<Refund />} />
           <Route path="/about" element={<About />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/blog/why-devtinder" element={<BlogPost />} />
+          <Route path="/shipping-policy" element={<ShippingPolicy />} />
+          <Route path="/faq" element={<FAQs />} />
+
           <Route path="/premium" element={<PremiumCard />} />
           <Route
             path="/user/request/received"
             element={<ConnectionRequest />}
           />
-          <Route path="/profile/:userName" element={<UserAccount />} />
+          <Route path="/:userName" element={<UserAccount />} />
           <Route path="/connection" element={<MyConnection />} />
           <Route path="/accounts/password/reset" element={<ForgetPassword />} />
         </Route>

@@ -66,7 +66,7 @@ const Login = () => {
       Navigate("/");
       toast.success(res.data.message);
     } catch (error) {
-      setMessage(error?.response?.data);
+      setMessage(error?.response?.data?.message);
       setIsLoading((prev) => !prev);
     }
   };
@@ -268,7 +268,6 @@ const Login = () => {
               </label>
               <div className="mt-1 flex justify-between gap-24  items-center">
                 <p>
-                  {" "}
                   <Link
                     to="/accounts/password/reset"
                     className="link link-hover"
@@ -304,7 +303,7 @@ const Login = () => {
           </form>
           <div className="w-full flex justify-center items-center overflow-hidden rounded-sm bg-white my-2 py-1">
             <GoogleLogin
-              width="324px"
+              width="320px"
               onSuccess={(Credential) => {
                 const authUser = jwtDecode(Credential?.credential);
                 if (authUser) {

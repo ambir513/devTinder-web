@@ -57,9 +57,16 @@ const UserAccount = () => {
               ) : null}
             </div>
             <p className="mb-2 ml-2 ">{user?.description}</p>
-            <Link className="link link-hover ml-2">
-              Connections: {connection?.length}
-            </Link>
+            <div className="flex justify-between">
+              <p className="link link-hover ml-2">
+                Connections: {connection?.length}
+              </p>
+              <Link to={`/chat/${user?._id}`}>
+                <button className="btn btn-primary btn-sm mr-5">
+                  Send Message
+                </button>
+              </Link>
+            </div>
             <fieldset className="fieldset w-fit flex bg-base-200 border border-white mb-3 p-4 rounded-box">
               <legend className="fieldset-legend">&nbsp;Skills&nbsp;</legend>
               <div className="join flex flex-wrap justify-center items-center gap-2">

@@ -3,9 +3,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full sm:h-screen h-fit p-6 text-white ">
+    <div className="w-full max-w-4xl mx-auto p-6 text-white ">
       <div className="q">
-        <h1 className="text-3xl font-bold mb-4">About DevTinder</h1>
+        <h1 className="text-4xl font-bold mb-6 text-center">About us</h1>
         <p className="mb-4">
           <strong>DevTinder</strong> is a social networking platform built
           exclusively for developers to connect, collaborate, and create.

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeRequest } from "../utils/connectionRequestSlice";
 import { addConnection } from "../utils/connectionSlice";
+import { Link } from "react-router-dom";
 
 const ConnectionRequest = () => {
   const dispatch = useDispatch();
@@ -39,19 +40,21 @@ const ConnectionRequest = () => {
               className="list-row flex sm:flex-row flex-col justify-between items-center sm:mb-0 mb-1"
               key={req?._id}
             >
-              <div className="flex justify-center gap-4 items-center">
-                <div>
-                  <img className="size-10 rounded-box" src={req?.photoUrl} />
+              <Link to={`/${req?.userName}`}>
+                <div className="flex justify-center gap-4 items-center">
+                  <div>
+                    <img className="size-10 rounded-box" src={req?.photoUrl} />
+                  </div>
+                  <div className="flex flex-col gap-1 ">
+                    <p>
+                      {req?.firstName}&nbsp;{req?.lastName}
+                    </p>
+                    <p className="text-xs uppercase font-semibold opacity-60">
+                      {req?.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-1 ">
-                  <p>
-                    {req?.firstName}&nbsp;{req?.lastName}
-                  </p>
-                  <p className="text-xs uppercase font-semibold opacity-60">
-                    {req?.description}
-                  </p>
-                </div>
-              </div>
+              </Link>
               <div className="flex justify-center items-center gap-5">
                 <button
                   className="btn btn-success sm:btn-md btn-sm w-fit"

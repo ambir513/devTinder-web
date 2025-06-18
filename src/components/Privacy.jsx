@@ -1,7 +1,7 @@
 const Privacy = () => (
-  <div className="p-6 w-full flex justify-center mx-auto h-fit ">
+  <div className="p-6 max-w-4xl mx-auto w-full flex justify-center items-center ">
     <div>
-      <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center ">Privacy Policy</h1>
       <p className="text-sm mb-4">
         <strong>Effective Date:</strong> June 17, 2025
       </p>
@@ -75,6 +75,7 @@ const Privacy = () => (
           amarbiradar147@gmail.com
         </a>
       </p>
+      <p className="text-sm text-gray-500 mt-6">Last updated: June 18, 2025</p>
     </div>
   </div>
 );
