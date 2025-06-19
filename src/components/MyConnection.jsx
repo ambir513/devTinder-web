@@ -24,10 +24,16 @@ const MyConnection = () => {
                 {user?.description}
               </div>
             </div>
-            <Link to={users?.isPremium ? `/chat/${user?._id}` : "/premium"}>
+            <Link
+              to={
+                users?.membershipType === "Premium"
+                  ? `/chat/${user?._id}`
+                  : "/premium"
+              }
+            >
               <button className="btn btn-primary">Chat</button>
             </Link>
-            <Link to={`/profile/${user?.emailId?.split("@")[0]}`}>
+            <Link to={`/${user?.emailId?.split("@")[0]}`}>
               <button className="btn btn-secondary">View</button>
             </Link>
           </li>

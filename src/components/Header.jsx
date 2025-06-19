@@ -60,7 +60,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-300  flex flex-col justify-center gap-2 rounded-box z-10 mt-4 w-52 shadow"
             >
-              <li className="hover:border-l-5">
+              <li className="active:border-l-5 sm:hover:border-l-5">
                 <Link to="/" className="px-2 py-2">
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Explore</p>
@@ -69,7 +69,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li className="sm:hidden hover:border-l-5">
+              <li className="sm:hidden active:border-l-5 sm:hover:border-l-5">
                 <Link to="/connection" className="px-2 py-2">
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Your Connection</p>
@@ -80,7 +80,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li className="hover:border-l-5">
+              <li className="active:border-l-5 sm:hover:border-l-5">
                 <Link to="/user/request/received" className="px-2 py-2">
                   <div className="flex flex-col">
                     <p className="font-medium text-sm flex items-center gap-1">
@@ -96,7 +96,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li className="hover:border-l-5">
+              <li className="active:border-l-5 sm:hover:border-l-5">
                 <Link to="/profile" className="px-2 py-2">
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Profile</p>
@@ -105,7 +105,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li className="hover:border-l-5">
+              <li className="active:border-l-5 sm:hover:border-l-5">
                 <Link to="/premium" className="px-2 py-2">
                   <div className="flex flex-col">
                     <div className="flex justify-between gap-2">
@@ -121,7 +121,10 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li onClick={handleLogout} className="hover:border-l-5">
+              <li
+                onClick={handleLogout}
+                className="active:border-l-5 sm:hover:border-l-5"
+              >
                 <button className="px-2 py-2 w-full text-left">
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Logout</p>

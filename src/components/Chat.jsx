@@ -49,7 +49,7 @@ const Chat = () => {
   return (
     <div className="w-screen h-screen ">
       <div className="p-5">
-        <Link to={"/profile/" + user?.userName}>
+        <Link to={"/" + user?.userName}>
           <div className="flex gap-4 items-center bg-base-300 p-3 pl-10">
             <img
               src={user?.photoUrl}
