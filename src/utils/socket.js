@@ -1,7 +1,9 @@
 import { io } from "socket.io-client";
 
 export const createSocketConnection = () => {
-  return io("http://thedevtinder.xyz", {
+  return io("https://thedevtinder.xyz", {
     path: "/api/socket.io",
+    transports: ["websocket"], // recommended for cleaner connection
+    withCredentials: true, // optional if you're sending cookies/auth
   });
 };
