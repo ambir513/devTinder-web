@@ -26,7 +26,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="navbar bg-base-300 shadow-sm sm:px-10">
+    <div className="navbar bg-base-300 shadow-sm sm:px-10 fixed top-0 z-50">
       <Toaster position="top-center" reverseOrder={false} />
 
       <div className="flex-1">
