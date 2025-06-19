@@ -61,7 +61,13 @@ const UserAccount = () => {
               <p className="link link-hover ml-2">
                 Connections: {connection?.length}
               </p>
-              <Link to={`/chat/${user?._id}`}>
+              <Link
+                to={
+                  user?.membershipType === "Premium"
+                    ? `/chat/${user?._id}`
+                    : "/premium"
+                }
+              >
                 <button className="btn btn-primary btn-sm mr-5">
                   Send Message
                 </button>

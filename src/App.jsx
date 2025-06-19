@@ -66,7 +66,7 @@ function App() {
           <Route path="/premium" element={<PremiumCard />} />
           <Route path="/terms-condition" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
-          <Route path="/contact-us" element={<Contact />} />
+          <Route path="//contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/blog/why-devtinder" element={<BlogPost />} />

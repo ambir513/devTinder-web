@@ -44,7 +44,7 @@ const Footer = () => {
               <Link to="/faq" onClick={() => window.scrollTo(0, 0)}>
                 <p>FAQs</p>
               </Link>
-              <Link to="/contact-us" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="//contact" onClick={() => window.scrollTo(0, 0)}>
                 <p>Contact Us</p>
               </Link>
             </div>
