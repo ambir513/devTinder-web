@@ -84,7 +84,7 @@ const Contact = () => {
             >
               ✉️ Email Us
             </a>
-            <Link to="/privacy" className="btn btn-secondary w-full">
+            <Link to="/privacy-policy" className="btn btn-secondary w-full">
               🔒 Privacy Policy
             </Link>
           </div>

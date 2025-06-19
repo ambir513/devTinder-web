@@ -61,7 +61,11 @@ const Header = () => {
               className="menu menu-sm dropdown-content bg-base-300  flex flex-col justify-center gap-2 rounded-box z-10 mt-4 w-52 shadow"
             >
               <li className="active:border-l-5 sm:hover:border-l-5">
-                <Link to="/" className="px-2 py-2">
+                <Link
+                  to="/"
+                  className="px-2 py-2"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Explore</p>
                     <p className="text-[10px] text-gray-500">Discover Devs</p>
@@ -70,7 +74,11 @@ const Header = () => {
               </li>
 
               <li className="sm:hidden active:border-l-5 sm:hover:border-l-5">
-                <Link to="/connection" className="px-2 py-2">
+                <Link
+                  to="/connection"
+                  className="px-2 py-2"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Your Connection</p>
                     <p className="text-[10px] text-gray-500">
@@ -81,7 +89,11 @@ const Header = () => {
               </li>
 
               <li className="active:border-l-5 sm:hover:border-l-5">
-                <Link to="/user/request/received" className="px-2 py-2">
+                <Link
+                  to="/user/request/received"
+                  className="px-2 py-2"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   <div className="flex flex-col">
                     <p className="font-medium text-sm flex items-center gap-1">
                       Requests
@@ -97,7 +109,11 @@ const Header = () => {
               </li>
 
               <li className="active:border-l-5 sm:hover:border-l-5">
-                <Link to="/profile" className="px-2 py-2">
+                <Link
+                  to="/profile"
+                  className="px-2 py-2"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   <div className="flex flex-col">
                     <p className="font-medium text-sm">Profile</p>
                     <p className="text-[10px] text-gray-500">Your Info</p>
@@ -106,7 +122,11 @@ const Header = () => {
               </li>
 
               <li className="active:border-l-5 sm:hover:border-l-5">
-                <Link to="/premium" className="px-2 py-2">
+                <Link
+                  to="/premium"
+                  className="px-2 py-2"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   <div className="flex flex-col">
                     <div className="flex justify-between gap-2">
                       <p className="font-medium text-sm">Premium</p>
