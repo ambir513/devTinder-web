@@ -10,10 +10,15 @@ const Footer = () => {
             <Link
               to="/"
               className="w-[171px] btn bg-ghost py-2 md:text-xl sm:text-md text-lg lg:text-xl"
+              onClick={() => window.scrollTo(0, 0)}
             >
               👨‍💻DevTinder
             </Link>
-            <Link to="http://amarbiradar.ct.ws/" target="_blank">
+            <Link
+              to="http://amarbiradar.ct.ws/"
+              target="_blank"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <p>Crafted by Amar Biradar</p>
             </Link>
           </div>
@@ -30,37 +35,45 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-3 text-zinc-500 min-w-[120px]">
-              <p className="font-bold text-gray-700">Support</p>
-              <Link to="/faq">
+              <p
+                className="font-bold text-gray-700"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Support
+              </p>
+              <Link to="/faq" onClick={() => window.scrollTo(0, 0)}>
                 <p>FAQs</p>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
                 <p>Contact Us</p>
               </Link>
             </div>
 
             <div className="flex flex-col gap-3 text-zinc-500 sm:min-w-[130px] max-w-[130px]">
               <p className="font-bold text-gray-700">Legal</p>
-              <Link to="/privacy-policy">
+              <Link to="/privacy-policy" onClick={() => window.scrollTo(0, 0)}>
                 <p>Privacy Policy</p>
               </Link>
-              <Link to="/terms-condition">
+              <Link to="/terms-condition" onClick={() => window.scrollTo(0, 0)}>
                 <p>Terms & Conditions</p>
               </Link>
-              <Link to="/refund-policy">
+              <Link to="/refund-policy" onClick={() => window.scrollTo(0, 0)}>
                 <p>Refund Policy</p>
               </Link>
-              <Link to="/shipping-policy">
+              <Link to="/shipping-policy" onClick={() => window.scrollTo(0, 0)}>
                 <p>Shipping & Delivery Policy</p>
               </Link>
             </div>
 
             <div className="flex flex-col gap-3 text-zinc-500 min-w-[120px]">
               <p className="font-bold text-gray-700">Company</p>
-              <Link to="/about">
+              <Link to="/about" onClick={() => window.scrollTo(0, 0)}>
                 <p>About Us</p>
               </Link>
-              <Link to="/blog/why-devtinder">
+              <Link
+                to="/blog/why-devtinder"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 <p>Blog</p>
               </Link>
             </div>

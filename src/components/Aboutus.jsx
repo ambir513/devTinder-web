@@ -42,10 +42,10 @@ const About = () => {
         <p>
           📧{" "}
           <a
-            href="mailto:amarbiradar147@gmail.com"
+            href="mailto:support@thedevtinder.xyz"
             className="text-blue-600 underline"
           >
-            amarbiradar147@gmail.com
+            support@thedevtinder.xyz
           </a>
           <br />
           📞{" "}

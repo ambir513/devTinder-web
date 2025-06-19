@@ -12,7 +12,7 @@ const Feed = () => {
     if (feed.length === 0) {
       getFeed();
     }
-  }, [feed]);
+  }, []);
 
   const getFeed = async () => {
     try {

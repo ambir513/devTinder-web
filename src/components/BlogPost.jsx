@@ -69,7 +69,7 @@ const BlogPost = () => {
           Sign up, swipe, and start building the future — together.
         </strong>
       </p>
-      <Link to="http://thedevtinder.xyz/" className="">
+      <Link to="/" className="" onClick={() => window.scrollTo(0, 0)}>
         <button className="btn btn-primary text-center">
           Join DevTinder Now
         </button>

@@ -67,10 +67,10 @@ const ShippingPolicy = () => {
         If you have any questions or concerns about your purchase or delivery,
         please contact us at:{" "}
         <a
-          href="mailto:amarbiradar147@gmail.com"
+          href="mailto:support@thedevtinder.xyz"
           className="text-indigo-600 underline"
         >
-          amarbiradar147@gmail.com
+          support@thedevtinder.xyz
         </a>
       </p>
 

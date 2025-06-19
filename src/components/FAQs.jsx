@@ -45,12 +45,12 @@ const FAQs = () => {
     {
       question: "I found a bug or issue. What should I do?",
       answer:
-        "Please report it to us at amarbiradar147@gmail.com with steps to reproduce. We’re constantly improving the platform!",
+        "Please report it to us at support@thedevtinder.xyz with steps to reproduce. We’re constantly improving the platform!",
     },
     {
       question: "How can I delete my account?",
       answer:
-        "Currently, account deletion is not available from the app interface as it's not recommended. If you still wish to proceed, please contact us at amarbiradar147@gmail.com and our team will assist you manually.",
+        "Currently, account deletion is not available from the app interface as it's not recommended. If you still wish to proceed, please contact us at support@thedevtinder.xyz and our team will assist you manually.",
     },
   ];
 
@@ -77,10 +77,10 @@ const FAQs = () => {
       <p className="mt-10 text-center text-sm text-gray-500">
         Still have questions? Email us at{" "}
         <a
-          href="mailto:amarbiradar147@gmail.com"
+          href="mailto:support@thedevtinder.xyz"
           className="text-primary underline"
         >
-          amarbiradar147@gmail.com
+          support@thedevtinder.xyz
         </a>
       </p>
     </div>

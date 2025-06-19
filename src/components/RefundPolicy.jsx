@@ -46,7 +46,7 @@ const RefundPolicy = () => {
         In the event of duplicate transactions caused by payment gateway errors
         or accidental clicks, we will issue a refund for the duplicate payment
         after validation. You must notify us at{" "}
-        <strong>amarbiradar147@gmail.com</strong> within 48 hours of the
+        <strong>support@thedevtinder.xyz</strong> within 48 hours of the
         transaction.
       </p>
 
@@ -84,10 +84,10 @@ const RefundPolicy = () => {
       <p className=" mb-4">
         Email your request to:{" "}
         <a
-          href="mailto:amarbiradar147@gmail.com"
+          href="mailto:support@thedevtinder.xyz"
           className="text-indigo-600 underline"
         >
-          amarbiradar147@gmail.com
+          support@thedevtinder.xyz
         </a>
       </p>
 

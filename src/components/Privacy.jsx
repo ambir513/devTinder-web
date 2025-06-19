@@ -56,10 +56,10 @@ const Privacy = () => (
         You can request to view, update, or delete your data at any time by
         contacting us at{" "}
         <a
-          href="mailto:amarbiradar147@gmail.com"
+          href="mailto:support@thedevtinder.xyz"
           className="text-blue-600 underline"
         >
-          amarbiradar147@gmail.com
+          support@thedevtinder.xyz
         </a>
         .
       </p>
@@ -69,10 +69,10 @@ const Privacy = () => (
         For any privacy-related questions, please contact us at: <br />
         <strong>Email:</strong>{" "}
         <a
-          href="mailto:amarbiradar147@gmail.com"
+          href="mailto:support@thedevtinder.xyz"
           className="text-blue-600 underline"
         >
-          amarbiradar147@gmail.com
+          support@thedevtinder.xyz
         </a>
       </p>
       <p className="text-sm text-gray-500 mt-6">Last updated: June 18, 2025</p>

@@ -16,7 +16,7 @@ const Contact = () => {
         <div className="card bg-base-100 shadow-md p-6">
           <form
             method="POST"
-            action="https://formsubmit.co/amarbiradar147@gmail.com"
+            action="https://formsubmit.co/support@thedevtinder.xyz"
             className="space-y-4"
           >
             <div>
@@ -79,7 +79,7 @@ const Contact = () => {
               📞 Call Us
             </a>
             <a
-              href="mailto:amarbiradar147@gmail.com"
+              href="mailto:support@thedevtinder.xyz"
               className="btn btn-neutral w-full"
             >
               ✉️ Email Us
@@ -94,10 +94,10 @@ const Contact = () => {
       <p className="mt-8 text-center text-sm text-gray-500">
         Prefer direct email? Write us at{" "}
         <a
-          href="mailto:amarbiradar147@gmail.com"
+          href="mailto:support@thedevtinder.xyz"
           className="text-primary underline"
         >
-          amarbiradar147@gmail.com
+          support@thedevtinder.xyz
         </a>
       </p>
     </div>

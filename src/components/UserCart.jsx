@@ -2,16 +2,22 @@ import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
 import { removeFeed } from "../utils/feedSlice.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const UserCart = ({ user }) => {
+  const MyUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const handleRequest = async (status, id) => {
     try {
       const res = await axios.post(
         `/api/request/send/${status}/${id}`,
-        {},
+        {
+          emailId: user?.emailId,
+          senderName: MyUser?.firstName + " " + MyUser?.lastName,
+          receiverName: user?.firstName + " " + user?.lastName,
+          senderBio: MyUser?.description,
+        },
         { withCredentials: true }
       );
       toast.success(res.data?.message);

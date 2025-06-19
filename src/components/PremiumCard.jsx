@@ -324,114 +324,253 @@ const PremiumCard = () => {
               </>
             )}
             {user?.membershipType === "Gold" && (
-              <div className="card sm:w-96 w-80 my-4 bg-base-100 shadow-sm">
-                <div className="card-body">
-                  <span className="badge badge-xs badge-success">General</span>
-                  <div className="flex justify-between">
-                    <h2 className="text-3xl font-bold">Gold</h2>
-                    <span className="text-xl">
-                      Rs. {(addCoupon.gold / 100).toFixed(2)}/mo
-                    </span>
-                  </div>
-                  <ul className="mt-6 flex flex-col gap-2 text-xs">
-                    <li>
+              <>
+                <div className="card sm:w-96 w-80 my-4 bg-base-100 shadow-sm">
+                  <div className="card-body">
+                    <div className="badge badge-success">
                       <svg
+                        className="size-[1em]"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="size-4 me-2 inline-block text-success"
-                        fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
+                        <g
+                          fill="currentColor"
+                          strokeLinejoin="miter"
+                          strokeLinecap="butt"
+                        >
+                          <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="square"
+                            stroke-miterlimit="10"
+                            strokeWidth="2"
+                          ></circle>
+                          <polyline
+                            points="7 13 10 16 17 8"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="square"
+                            stroke-miterlimit="10"
+                            strokeWidth="2"
+                          ></polyline>
+                        </g>
                       </svg>
-                      <span>100 connection Requests per day</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-4 me-2 inline-block text-success"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Customizable your profile</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-4 me-2 inline-block text-success"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Real-time collaboration tools</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-4 me-2 inline-block text-success"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Along with Blue tick</span>
-                    </li>
-                    <li className="opacity-50">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-4 me-2 inline-block text-base-content/50"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="line-through">
-                        Chat with other people
-                      </span>
-                    </li>
-                  </ul>
-                  <div className="mt-6">
-                    <button
-                      className="btn btn-primary btn-block"
-                      onClick={() => handleByClick(addCoupon.gold, "Gold")}
-                    >
-                      Subscribe
-                    </button>
+                      Active
+                    </div>
+                    <div className="flex justify-between">
+                      <h2 className="text-3xl font-bold">Gold</h2>
+                      <span className="text-xl">You're a Member!</span>
+                    </div>
+                    <ul className="mt-6 flex flex-col gap-2 text-xs">
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>100 connection Requests per day</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Customizable your profile</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Real-time collaboration tools</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Along with Blue tick</span>
+                      </li>
+                      <li className="opacity-50">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-base-content/50"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span className="line-through">
+                          Chat with other people
+                        </span>
+                      </li>
+                    </ul>
+                    <div className="mt-6">
+                      <button className="btn w-full" disabled="disabled ">
+                        Already Subscribed
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div className="card sm:w-96 w-80 my-4 bg-base-100 shadow-sm">
+                  <div className="card-body">
+                    <span className="badge badge-xs badge-warning">
+                      Most Popular
+                    </span>
+                    <div className="flex justify-between items-center">
+                      <h2 className="text-3xl font-bold">Premium</h2>
+                      <span className="text-xl">
+                        Rs. {(addCoupon.premium / 100).toFixed(2)}/mo
+                      </span>
+                    </div>
+                    <ul className="mt-6 flex flex-col gap-2 text-xs">
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>200 connection Requests per day</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Customizable your profile</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Real-time collaboration tools</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Along with Gold Badge</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4 me-2 inline-block text-success"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>Chat with other people</span>
+                      </li>
+                    </ul>
+                    <div className="mt-6">
+                      <button
+                        className="btn btn-primary btn-block"
+                        onClick={() =>
+                          handleByClick(addCoupon.premium, "Premium")
+                        }
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>
