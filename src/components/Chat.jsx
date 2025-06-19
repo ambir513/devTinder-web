@@ -13,28 +13,23 @@ const Chat = () => {
   const connection = useSelector((store) =>
     store.connection?.filter((user) => user._id === _id)
   );
-  const Navigate = useNavigate();
 
   useEffect(() => {
-    if (userData?.membershipType === "Premium") {
-      const socket = createSocketConnection();
-      console.log(userData?.firstName);
-      socket.emit("joinChat", { firstName: userData?.firstName, userId, _id });
-      socket.on(
-        "messageRecieved",
-        ({ firstName, text }) => {
-          setMessage((prev) => [...prev, { firstName, text }]);
-          console.log(text);
-        },
-        []
-      );
+    const socket = createSocketConnection();
+    console.log(userData?.firstName);
+    socket.emit("joinChat", { firstName: userData?.firstName, userId, _id });
+    socket.on(
+      "messageRecieved",
+      ({ firstName, text }) => {
+        setMessage((prev) => [...prev, { firstName, text }]);
+        console.log(text);
+      },
+      []
+    );
 
-      return () => {
-        socket.disconnect();
-      };
-    } else {
-      Navigate("/premium");
-    }
+    return () => {
+      socket.disconnect();
+    };
   }, [_id]);
 
   const user = connection?.[0];
