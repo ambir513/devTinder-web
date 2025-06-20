@@ -16,7 +16,7 @@ import { messaging } from "./utils/firebase";
 import { getToken } from "firebase/messaging";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
-import Contact from "./components/contact-us";
+import Contact from "./components/Contact";
 import About from "./components/Aboutus";
 import RefundPolicy from "./components/RefundPolicy";
 import ShippingPolicy from "./components/ShippingPolicy";
