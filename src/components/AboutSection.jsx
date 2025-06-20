@@ -27,7 +27,7 @@ const AboutSection = () => {
                 </button>
               </Link>
 
-              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/contact-us" onClick={() => window.scrollTo(0, 0)}>
                 <button className="btn font-bold relative pl-24 hover:pl-[100px] active:pl-[100px] w-[128px]">
                   <span className="absolute left-4">Talk to us</span>
                   <TbMessageCircleQuestion />

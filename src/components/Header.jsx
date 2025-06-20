@@ -53,7 +53,6 @@ const Header = () => {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              {console.log(user?.photoUrl)}
             </div>
 
             <ul
@@ -157,12 +156,12 @@ const Header = () => {
         </div>
       ) : (
         <ul className="flex gap-4">
-          <Link to="/login">
+          <Link to="/login" onClick={() => window.scrollTo(0, 0)}>
             <li>
               <button className="btn btn-soft">Login</button>
             </li>
           </Link>
-          <Link to="/signup">
+          <Link to="/signup" onClick={() => window.scrollTo(0, 0)}>
             <li>
               <button className="btn btn-soft btn-primary">Signup</button>
             </li>

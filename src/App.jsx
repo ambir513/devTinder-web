@@ -16,7 +16,7 @@ import { messaging } from "./utils/firebase";
 import { getToken } from "firebase/messaging";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
-import Contact from "./components/Contact";
+import Contact from "./components/contact-us";
 import About from "./components/Aboutus";
 import RefundPolicy from "./components/RefundPolicy";
 import ShippingPolicy from "./components/ShippingPolicy";
@@ -66,7 +66,7 @@ function App() {
           <Route path="/premium" element={<PremiumCard />} />
           <Route path="/terms-condition" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/blog/why-devtinder" element={<BlogPost />} />
