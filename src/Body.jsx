@@ -19,13 +19,13 @@ const Body = () => {
   const getUserData = async () => {
     try {
       const [user, connection, connectionRequest] = await axios.all([
-        axios.get("/api/account/view", {
+        axios.get("https://thedevtinder.vercel.app/account/view", {
           withCredentials: true,
         }),
-        axios.get("/api/user/connection", {
+        axios.get("https://thedevtinder.vercel.app/user/connection", {
           withCredentials: true,
         }),
-        axios.get("/api/user/request/received", {
+        axios.get("https://thedevtinder.vercel.app/user/request/received", {
           withCredentials: true,
         }),
       ]);

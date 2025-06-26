@@ -16,7 +16,11 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = axios.post("/api/logout", {}, { withCredentials: true });
+      const res = axios.post(
+        "https://thedevtinder.vercel.app/logout",
+        {},
+        { withCredentials: true }
+      );
       dispatch(removeUser());
       dispatch(removeConnection());
       dispatch(removeRequest());

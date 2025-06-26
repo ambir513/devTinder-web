@@ -13,9 +13,12 @@ const PremiumCard = () => {
   const user = useSelector((store) => store.user);
 
   const validatePayment = async () => {
-    const res = await axios.get("/api/payment/verify", {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      "https://thedevtinder.vercel.app/payment/verify",
+      {
+        withCredentials: true,
+      }
+    );
     console.log(res.data);
     dispatch(addUser(res.data));
   };
@@ -26,7 +29,7 @@ const PremiumCard = () => {
   const handleByClick = async (amount1, membership) => {
     try {
       const res = await axios.post(
-        "/api/payment/create",
+        "https://thedevtinder.vercel.app/payment/create",
         {
           amount: amount1,
           membership: membership,

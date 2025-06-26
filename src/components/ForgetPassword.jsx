@@ -23,7 +23,7 @@ const ForgetPassword = () => {
     }
     console.log(otp);
     try {
-      const res1 = await axios.post("/api/verify", {
+      const res1 = await axios.post("https://thedevtinder.vercel.app/verify", {
         emailId,
         otp,
       });
@@ -48,16 +48,22 @@ const ForgetPassword = () => {
     e.preventDefault();
     try {
       setIsLoading((prev) => !prev);
-      const res1 = await axios.post("/api/account/verifyPassword", {
-        emailId,
-      });
+      const res1 = await axios.post(
+        "https://thedevtinder.vercel.app/account/verifyPassword",
+        {
+          emailId,
+        }
+      );
       console.log(res1.data);
       if (res1.data?.status === "SUCCESS") {
         setPopOtp((prev) => !prev);
         setPopOtp2((prev) => !prev);
-        const res = await axios.post("/api/forgetotp", {
-          emailId,
-        });
+        const res = await axios.post(
+          "https://thedevtinder.vercel.app/forgetotp",
+          {
+            emailId,
+          }
+        );
         if (res.data?.message) {
           setIsLoading((prev) => !prev);
           toast.success(res.data?.message);
@@ -74,11 +80,14 @@ const ForgetPassword = () => {
     setIsLoading((prev) => !prev);
     try {
       if (newPassword === confirmPassword) {
-        const res1 = await axios.post("/api/account/newPassword", {
-          emailId,
-          newPassword,
-          confirmPassword,
-        });
+        const res1 = await axios.post(
+          "https://thedevtinder.vercel.app/account/newPassword",
+          {
+            emailId,
+            newPassword,
+            confirmPassword,
+          }
+        );
         console.log(res1.data?.message);
         if (res1.data?.message) {
           toast.success(res1.data?.message);
@@ -99,9 +108,12 @@ const ForgetPassword = () => {
 
   const resentotp = async () => {
     try {
-      const res = await axios.post("/api/resentotp", {
-        emailId,
-      });
+      const res = await axios.post(
+        "https://thedevtinder.vercel.app/resentotp",
+        {
+          emailId,
+        }
+      );
       if (res.data?.message) {
         toast.success(res.data?.message);
       }
