@@ -37,7 +37,7 @@ const Login = () => {
     setIsLoading((prev) => !prev);
     try {
       const res = await axios.post(
-        "https://thedevtinder.vercel.app/login",
+        "https://dev-tinder-ggrn.onrender.com/login",
         {
           emailId,
           password,
@@ -47,13 +47,13 @@ const Login = () => {
       dispatch(addUser(res.data?.data));
       if (res.data) {
         const connection = await axios.get(
-          "https://thedevtinder.vercel.app/user/connection",
+          "https://dev-tinder-ggrn.onrender.com/user/connection",
           {
             withCredentials: true,
           }
         );
         const connectionRequest = await axios.get(
-          "https://thedevtinder.vercel.app/user/request/received",
+          "https://dev-tinder-ggrn.onrender.com/user/request/received",
           {
             withCredentials: true,
           }
@@ -77,17 +77,20 @@ const Login = () => {
   const handleSignUp = async (user) => {
     const userName = user?.email?.split("@")[0];
     try {
-      const res1 = await axios.post("https://thedevtinder.vercel.app/signup", {
-        firstName: user?.given_name,
-        lastName: user?.family_name,
-        userName,
-        emailId: user?.email,
-        password: "Google25" + user?.email,
-      });
+      const res1 = await axios.post(
+        "https://dev-tinder-ggrn.onrender.com/signup",
+        {
+          firstName: user?.given_name,
+          lastName: user?.family_name,
+          userName,
+          emailId: user?.email,
+          password: "Google25" + user?.email,
+        }
+      );
 
       if (!res1.data?.status) {
         const res2 = await axios.post(
-          "https://thedevtinder.vercel.app/login",
+          "https://dev-tinder-ggrn.onrender.com/login",
           {
             emailId: user?.email,
             password: "Google25" + user?.email,
@@ -97,7 +100,7 @@ const Login = () => {
         console.log(res2.data?.data);
         try {
           const res = await axios.post(
-            "https://thedevtinder.vercel.app/account/oauth",
+            "https://dev-tinder-ggrn.onrender.com/account/oauth",
             {
               photoUrl: user?.picture,
             },
@@ -117,7 +120,7 @@ const Login = () => {
         }
       } else {
         const res2 = await axios.post(
-          "https://thedevtinder.vercel.app/login",
+          "https://dev-tinder-ggrn.onrender.com/login",
           {
             emailId: user?.email,
             password: "Google25" + user?.email,
@@ -128,7 +131,7 @@ const Login = () => {
 
         try {
           const res = await axios.post(
-            "https://thedevtinder.vercel.app/account/oauth",
+            "https://dev-tinder-ggrn.onrender.com/account/oauth",
             {
               photoUrl: user?.picture,
             },

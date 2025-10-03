@@ -16,7 +16,7 @@ const UserAccount = () => {
   const getUser = async () => {
     try {
       const res = await axios.get(
-        "https://thedevtinder.vercel.app/account/" + userName
+        "https://dev-tinder-ggrn.onrender.com/account/" + userName
       );
       setUser(res.data?.data);
       console.log(res.data);

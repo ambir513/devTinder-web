@@ -12,7 +12,7 @@ const ConnectionRequest = () => {
   const handleConnectionRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `https://thedevtinder.vercel.app/request/review/${status}/${id}`,
+        `https://dev-tinder-ggrn.onrender.com/request/review/${status}/${id}`,
         {},
         { withCredentials: true }
       );
@@ -20,7 +20,7 @@ const ConnectionRequest = () => {
       dispatch(removeRequest(id));
       if (res.data?.message) {
         const res2 = await axios.get(
-          "https://thedevtinder.vercel.app/user/connection",
+          "https://dev-tinder-ggrn.onrender.com/user/connection",
           {
             withCredentials: true,
           }

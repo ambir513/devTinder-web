@@ -11,7 +11,7 @@ const UserCart = ({ user }) => {
   const handleRequest = async (status, id) => {
     try {
       const res = await axios.post(
-        `https://thedevtinder.vercel.app/request/send/${status}/${id}`,
+        `https://dev-tinder-ggrn.onrender.com/request/send/${status}/${id}`,
         {
           emailId: user?.emailId,
           senderName: MyUser?.firstName + " " + MyUser?.lastName,
