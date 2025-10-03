@@ -63,7 +63,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<EditProfile />} />
           <Route path="/chat/:_id" element={<ChatLazy />} />
-          <Route path="/premium" element={<PremiumCard />} />
           <Route path="/terms-condition" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/contact-us" element={<Contact />} />

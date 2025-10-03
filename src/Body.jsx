@@ -57,7 +57,7 @@ const Body = () => {
   return (
     <div>
       <Header />
-      <div className="flex justify-center mt-18">
+      <div className="flex justify-center mt-16">
         {connection && <Connection />}
         <Outlet />
       </div>

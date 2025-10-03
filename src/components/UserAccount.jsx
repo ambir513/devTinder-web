@@ -63,17 +63,14 @@ const UserAccount = () => {
               <p className="link link-hover ml-2">
                 Connections: {connection?.length}
               </p>
-              <Link
-                to={
-                  user?.membershipType === "Premium"
-                    ? `/chat/${user?._id}`
-                    : "/premium"
-                }
+              <button
+                className="btn btn-primary btn-sm mr-5"
+                onClick={() => {
+                  toast.error("You must be following to send message");
+                }}
               >
-                <button className="btn btn-primary btn-sm mr-5">
-                  Send Message
-                </button>
-              </Link>
+                Send Message
+              </button>
             </div>
             <fieldset className="fieldset w-fit flex bg-base-200 border border-white mb-3 p-4 rounded-box">
               <legend className="fieldset-legend">&nbsp;Skills&nbsp;</legend>
