@@ -29,6 +29,7 @@ const Login = () => {
     onError: () => {
       console.log("One Tap failed");
     },
+    flow: "auth-code",
   });
 
   const handleSubmit = async (e) => {
@@ -44,7 +45,7 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data?.data));
-      if (res.data?.data?.userName) {
+      if (res.data) {
         const connection = await axios.get(
           "https://thedevtinder.vercel.app/user/connection",
           {
@@ -76,16 +77,13 @@ const Login = () => {
   const handleSignUp = async (user) => {
     const userName = user?.email?.split("@")[0];
     try {
-      const res1 = await axios.post(
-        "https://thedevtinder.vercel.app/signup",
-        {
-          firstName: user?.given_name,
-          lastName: user?.family_name,
-          userName,
-          emailId: user?.email,
-          password: "Google25" + user?.email,
-        }
-      );
+      const res1 = await axios.post("https://thedevtinder.vercel.app/signup", {
+        firstName: user?.given_name,
+        lastName: user?.family_name,
+        userName,
+        emailId: user?.email,
+        password: "Google25" + user?.email,
+      });
 
       if (!res1.data?.status) {
         const res2 = await axios.post(
@@ -166,6 +164,7 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Email</legend>
+
               <label className="input validator w-full">
                 <svg
                   className="h-[1em] opacity-50"
