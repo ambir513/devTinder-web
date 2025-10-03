@@ -72,32 +72,34 @@ const Chat = () => {
           </div>
         </Link>
 
-        <div className="flex flex-col gap-4 p-4 h-[500px] border-2 border-base-300 overflow-y-scroll">
+        <div className="flex flex-col gap-4 p-4  h-[500px] border-2  border-base-300 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory">
           {message.map((mes, index) => {
-            const isYou = mes?.firstName === userData?.firstName;
             return (
               <div
-                className={`flex ${isYou ? "justify-end" : "justify-start"}`}
+                className={`chat ${
+                  mes?.firstName !== userData?.firstName
+                    ? "chat-start"
+                    : "chat-end"
+                } `}
                 key={index}
               >
-                <div className="max-w-[70%]">
-                  <div className="text-sm text-gray-500 mb-1">
-                    {isYou ? "You" : mes?.firstName}
-                  </div>
-                  <div
-                    className={`p-3 rounded-lg break-words ${
-                      isYou
-                        ? "bg-green-500 text-white rounded-br-none"
-                        : "bg-gray-200 text-black rounded-bl-none"
-                    }`}
-                  >
-                    {mes.text}
-                  </div>
+                <div className="chat-header">
+                  {mes?.firstName !== userData?.firstName
+                    ? mes?.firstName
+                    : "You"}
+                </div>
+                <div
+                  className={`chat-bubble  ${
+                    mes?.firstName !== userData?.firstName
+                      ? "chat-bubble-neutral"
+                      : "chat-bubble-success"
+                  }`}
+                >
+                  {mes.text}
                 </div>
               </div>
             );
           })}
-          <div ref={bottomRef} />
         </div>
 
         {/* Input Box */}
