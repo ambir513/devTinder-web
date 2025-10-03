@@ -72,24 +72,27 @@ const Chat = () => {
           </div>
         </Link>
 
-        {/* Chat Messages */}
-        <div className="flex flex-col gap-4 p-4 h-[500px] border-2 border-base-300 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory">
+        <div className="flex flex-col gap-4 p-4 h-[500px] border-2 border-base-300 overflow-y-scroll">
           {message.map((mes, index) => {
             const isYou = mes?.firstName === userData?.firstName;
             return (
               <div
-                className={`chat ${isYou ? "chat-end" : "chat-start"}`}
+                className={`flex ${isYou ? "justify-end" : "justify-start"}`}
                 key={index}
               >
-                <div className="chat-header">
-                  {isYou ? "You" : mes?.firstName}
-                </div>
-                <div
-                  className={`chat-bubble ${
-                    isYou ? "chat-bubble-success" : "chat-bubble-neutral"
-                  }`}
-                >
-                  {mes.text}
+                <div className="max-w-[70%]">
+                  <div className="text-sm text-gray-500 mb-1">
+                    {isYou ? "You" : mes?.firstName}
+                  </div>
+                  <div
+                    className={`p-3 rounded-lg break-words ${
+                      isYou
+                        ? "bg-green-500 text-white rounded-br-none"
+                        : "bg-gray-200 text-black rounded-bl-none"
+                    }`}
+                  >
+                    {mes.text}
+                  </div>
                 </div>
               </div>
             );
