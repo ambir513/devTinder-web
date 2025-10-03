@@ -7,7 +7,8 @@ const Chat = () => {
   const { _id } = useParams();
   const userData = useSelector((store) => store.user);
   const userId = userData?._id;
-  const [message, setMessage] = useState([]);
+
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [socket, setSocket] = useState(null);
 
@@ -17,32 +18,35 @@ const Chat = () => {
   const user = connection?.[0];
   const bottomRef = useRef(null);
 
-  // create socket connection
+  // Create socket connection
   useEffect(() => {
     const newSocket = createSocketConnection();
     setSocket(newSocket);
 
+    // Join chat room
     newSocket.emit("joinChat", { firstName: userData?.firstName, userId, _id });
 
+    // Listen for incoming messages
     newSocket.on("messageRecieved", ({ firstName, text }) => {
-      setMessage((prev) => [...prev, { firstName, text }]);
+      setMessages((prev) => [...prev, { firstName, text }]);
     });
 
     return () => {
       newSocket.disconnect();
     };
-  }, [_id]);
+  }, [_id, userData?.firstName, userId]);
 
-  // auto-scroll to bottom
+  // Auto-scroll to bottom when messages update
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [message]);
+  }, [messages]);
 
+  // Handle sending a message
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim() || !socket) return;
 
-    // emit message
+    // Emit message to server
     socket.emit("sendMessage", {
       firstName: userData?.firstName,
       userId,
@@ -50,8 +54,8 @@ const Chat = () => {
       text: input,
     });
 
-    // show message instantly
-    setMessage((prev) => [
+    // Show message instantly in UI
+    setMessages((prev) => [
       ...prev,
       { firstName: userData?.firstName, text: input },
     ]);
@@ -61,50 +65,53 @@ const Chat = () => {
   return (
     <div className="w-screen h-screen">
       <div className="p-5">
+        {/* Chat Header */}
         <Link to={"/" + user?.userName}>
-          <div className="flex gap-4 items-center bg-base-300 p-3 pl-10">
+          <div className="flex gap-4 items-center bg-base-300 p-3 pl-10 rounded-md">
             <img
               src={user?.photoUrl}
               alt=""
-              className="w-[40px] rounded-full"
+              className="w-[40px] h-[40px] rounded-full object-cover"
             />
-            <span>{user?.firstName + " " + user?.lastName}</span>
+            <span className="font-medium">
+              {user?.firstName + " " + user?.lastName}
+            </span>
           </div>
         </Link>
 
-        <div className="flex flex-col gap-4 p-4  h-[500px] border-2  border-base-300 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory">
-          {message.map((mes, index) => {
-            return (
-              <div
-                className={`chat ${
-                  mes?.firstName !== userData?.firstName
-                    ? "chat-start"
-                    : "chat-end"
-                } `}
-                key={index}
-              >
-                <div className="chat-header">
-                  {mes?.firstName !== userData?.firstName
-                    ? mes?.firstName
-                    : "You"}
-                </div>
-                <div
-                  className={`chat-bubble  ${
-                    mes?.firstName !== userData?.firstName
-                      ? "chat-bubble-neutral"
-                      : "chat-bubble-success"
-                  }`}
-                >
-                  {mes.text}
-                </div>
+        {/* Messages */}
+        <div className="flex flex-col gap-4 p-4 h-[500px] border-2 border-base-300 overflow-y-scroll overflow-x-hidden">
+          {messages.map((mes, index) => (
+            <div
+              className={`chat ${
+                mes?.firstName !== userData?.firstName
+                  ? "chat-start"
+                  : "chat-end"
+              }`}
+              key={index}
+            >
+              <div className="chat-header">
+                {mes?.firstName !== userData?.firstName
+                  ? mes?.firstName
+                  : "You"}
               </div>
-            );
-          })}
+              <div
+                className={`chat-bubble ${
+                  mes?.firstName !== userData?.firstName
+                    ? "chat-bubble-neutral"
+                    : "chat-bubble-success"
+                }`}
+              >
+                {mes.text}
+              </div>
+            </div>
+          ))}
+          <div ref={bottomRef} />
         </div>
 
         {/* Input Box */}
         <form
-          className="flex gap-4 items-center bg-base-300 p-3 pl-10"
+          className="flex gap-4 items-center bg-base-300 p-3 pl-10 mt-2 rounded-md"
           onSubmit={handleSubmit}
         >
           <input
