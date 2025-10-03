@@ -34,7 +34,7 @@ const Profile = () => {
       formData.append("caption", text);
 
       const res = await axios.post(
-        "https://thedevtinder.vercel.app/account/post/upload",
+        "https://dev-tinder-ggrn.onrender.com/account/post/upload",
         formData,
         {
           headers: {

@@ -23,10 +23,13 @@ const ForgetPassword = () => {
     }
     console.log(otp);
     try {
-      const res1 = await axios.post("https://thedevtinder.vercel.app/verify", {
-        emailId,
-        otp,
-      });
+      const res1 = await axios.post(
+        "https://dev-tinder-ggrn.onrender.com/verify",
+        {
+          emailId,
+          otp,
+        }
+      );
       if (res1.data?.status === "SUCCESS") {
         console.log(res1.data);
         setPopOtp1((prev) => !prev);
@@ -49,7 +52,7 @@ const ForgetPassword = () => {
     try {
       setIsLoading((prev) => !prev);
       const res1 = await axios.post(
-        "https://thedevtinder.vercel.app/account/verifyPassword",
+        "https://dev-tinder-ggrn.onrender.com/account/verifyPassword",
         {
           emailId,
         }
@@ -59,7 +62,7 @@ const ForgetPassword = () => {
         setPopOtp((prev) => !prev);
         setPopOtp2((prev) => !prev);
         const res = await axios.post(
-          "https://thedevtinder.vercel.app/forgetotp",
+          "https://dev-tinder-ggrn.onrender.com/forgetotp",
           {
             emailId,
           }
@@ -81,7 +84,7 @@ const ForgetPassword = () => {
     try {
       if (newPassword === confirmPassword) {
         const res1 = await axios.post(
-          "https://thedevtinder.vercel.app/account/newPassword",
+          "https://dev-tinder-ggrn.onrender.com/account/newPassword",
           {
             emailId,
             newPassword,
@@ -109,7 +112,7 @@ const ForgetPassword = () => {
   const resentotp = async () => {
     try {
       const res = await axios.post(
-        "https://thedevtinder.vercel.app/resentotp",
+        "https://dev-tinder-ggrn.onrender.com/resentotp",
         {
           emailId,
         }

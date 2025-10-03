@@ -22,9 +22,12 @@ const Signup = () => {
     e.preventDefault();
     setIsLoading((prev) => !prev);
     try {
-      const res = await axios.post("https://thedevtinder.vercel.app/sentotp", {
-        emailId,
-      });
+      const res = await axios.post(
+        "https://dev-tinder-ggrn.onrender.com/sentotp",
+        {
+          emailId,
+        }
+      );
       if (res.data?.message) {
         setIsLoading((prev) => !prev);
         toast.success(res.data?.message);
@@ -39,7 +42,7 @@ const Signup = () => {
   const resentotp = async () => {
     try {
       const res = await axios.post(
-        "https://thedevtinder.vercel.app/resentotp",
+        "https://dev-tinder-ggrn.onrender.com/resentotp",
         {
           emailId,
         }
@@ -58,25 +61,31 @@ const Signup = () => {
       setMessage("Invalid OTP format");
     }
     try {
-      const res = await axios.post("https://thedevtinder.vercel.app/verify", {
-        emailId,
-        otp,
-      });
+      const res = await axios.post(
+        "https://dev-tinder-ggrn.onrender.com/verify",
+        {
+          emailId,
+          otp,
+        }
+      );
       if (res.data?.status !== "SUCCESS") {
         console.log(res.data);
       }
       setPopOtp((prev) => !prev);
       const userName = emailId.split("@")[0];
-      const res1 = await axios.post("https://thedevtinder.vercel.app/signup", {
-        firstName,
-        lastName,
-        userName,
-        emailId,
-        password,
-      });
+      const res1 = await axios.post(
+        "https://dev-tinder-ggrn.onrender.com/signup",
+        {
+          firstName,
+          lastName,
+          userName,
+          emailId,
+          password,
+        }
+      );
       if (res1.data?.message) {
         const res2 = await axios.post(
-          "https://thedevtinder.vercel.app/login",
+          "https://dev-tinder-ggrn.onrender.com/login",
           {
             emailId,
             password,

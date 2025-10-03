@@ -17,7 +17,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       const res = axios.post(
-        "https://thedevtinder.vercel.app/logout",
+        "https://dev-tinder-ggrn.onrender.com/logout",
         {},
         { withCredentials: true }
       );

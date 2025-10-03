@@ -48,7 +48,7 @@ const EditProfile = () => {
 
     try {
       const res = await axios.patch(
-        "https://thedevtinder.vercel.app/account/edit",
+        "https://dev-tinder-ggrn.onrender.com/account/edit",
         formData,
         {
           withCredentials: true,
